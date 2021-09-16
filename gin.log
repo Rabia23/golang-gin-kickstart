@@ -2,6 +2,16 @@
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /videos                   --> main.main.func1 (5 handlers)
-[GIN-debug] POST   /videos                   --> main.main.func2 (5 handlers)
+[GIN-debug] Loaded HTML Templates (4): 
+	- index.html
+	- 
+	- footer.html
+	- header.html
+
+[GIN-debug] GET    /api/videos               --> main.main.func1 (5 handlers)
+[GIN-debug] POST   /api/videos               --> main.main.func2 (5 handlers)
+[GIN-debug] GET    /view/videos              --> github.com/Rabia23/golang-gin-kickstart/controller.VideoController.ShowAll-fm (5 handlers)
 [GIN-debug] Listening and serving HTTP on :8080
+::1 - [16 Sep 21 18:41 PKT] GET /view/videos 200 893.853µs 
+::1 - [16 Sep 21 18:41 PKT] POST /api/videos 200 429.797µs 
+::1 - [16 Sep 21 18:42 PKT] GET /view/videos 200 679.417µs 
