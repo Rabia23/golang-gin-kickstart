@@ -1,6 +1,8 @@
 package controller
 
 import (
+	"net/http"
+
 	"github.com/Rabia23/golang-gin-kickstart/entity"
 	"github.com/Rabia23/golang-gin-kickstart/service"
 	"github.com/Rabia23/golang-gin-kickstart/validators"
@@ -11,6 +13,7 @@ import (
 type VideoController interface {
 	FindAll() []entity.Video
 	Save(c *gin.Context) error
+	ShowAll(c *gin.Context)
 }
 
 type controller struct {
@@ -43,4 +46,13 @@ func (c *controller) Save(ctx *gin.Context) error {
 	}
 	c.service.Save(video)
 	return nil
+}
+
+func (c *controller) ShowAll(ctx *gin.Context) {
+	videos := c.service.FindAll()
+	data := gin.H{
+		"title": "Video Page",
+		"videos": videos,
+	}
+	ctx.HTML(http.StatusOK, "index.html", data)
 }
